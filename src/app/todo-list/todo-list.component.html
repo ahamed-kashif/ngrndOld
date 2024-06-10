@@ -1,0 +1,23 @@
+<h4>Your todos</h4>
+<div style="font-size: small;" *ngIf="selectedTodo !== null">
+    <ngrnd-todo [todo]="selectedTodo" (removeTodo)="handleRemoveTodo($event)"></ngrnd-todo>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th colspan="12">Completed At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let todo of todos">
+            <td>{{todo.title}}</td>
+            <td colspan="12">{{todo.completed_at !== null ? (todo.completed_at | date : 'short') : 'Not competed yet!'}}</td>
+            <td>
+                <button (click)="showTodo(todo)">Show</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="resetTodo()">Reset Selected Todo</button>

@@ -1,0 +1,25 @@
+<table>
+    <tbody>
+        <tr>
+            <th>Title : </th>
+            <td>{{todo.title}}</td>
+        </tr>
+        <tr>
+            <th>Description : </th>
+            <td>{{todo.description}}</td>
+        </tr>
+        <tr>
+            <th>Completed at : </th>
+            <td>{{todo.completed_at !== null ? (todo.completed_at | date:'short') : 'Not completed yet!'}}</td>
+        </tr>
+        <tr>
+            <th>Cerated at : </th>
+            <td>{{todo.created_at !== null ? (todo.created_at | date:'short') : 'No date found!'}}</td>
+        </tr>
+        <tr>
+            <th>Updated at : </th>
+            <td>{{todo.completed_at !== null ? (todo.updated_at | date:'short') : 'No date found!'}}</td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="dispactRemoveTodo()">Delete</button>
